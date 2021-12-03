@@ -30,9 +30,12 @@ async function performRequestsAndLoop(loopCount: number, requestCount: number) {
       .catch(err => {
         console.log('Requests error: ', err.message);
       });
+    if (!fs.existsSync('./src/log')){
+      await fs.mkdirSync('./src/log');
+    }
     await fs.promises.writeFile(
       "./src/log/log.txt",
-      `${successRequests.length} successful responses received\n`,
+      `${successRequests.length} successful responses received at ${new Date().toLocaleString()}\n`,
       {flag: 'a'}
     );
 

@@ -5,3 +5,4 @@ typings
 dist
 coverage
 .nyc_output
+src/log
