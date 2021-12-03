@@ -1,12 +1,12 @@
 'use strict';
 
-import {SULFURAS_QUALITY} from "../../constant/item-constants";
+const SULFURAS_QUALITY = 80;
 
 /**
  * @class SulfurasItem
  * @extends Item
  */
-class SulfurasItem extends Item {
+export class SulfurasItem extends Item {
   /**
    * SulfurasItem constructor
    */

@@ -3,7 +3,12 @@
 import {BP_DOUBLE_RATE_DATE, BP_TRIPLE_RATE_DATE, ITEM_MAXIMUM_QUALITY} from "../../constant/item-constants";
 import {decreaseQuality, increaseQuality} from "../../util/quality-util";
 
-export function decreaseSellIn(item: AgedBrieItem, amount: number = 1, isConcert: boolean = false): void {
+/**
+ * @param {BackstagePassesItem} item
+ * @param {number}              amount
+ * @param {boolean}             isConcert
+ */
+export function decreaseSellIn(item: BackstagePassesItem, amount: number = 1, isConcert: boolean = false): void {
   if (isConcert) {
     item.sellIn = 0;
     item.quality = 0;
@@ -13,7 +18,11 @@ export function decreaseSellIn(item: AgedBrieItem, amount: number = 1, isConcert
   updateQuality(item, amount);
 }
 
-function updateQuality(item: AgedBrieItem, amount: number = 1): void {
+/**
+ * @param {BackstagePassesItem} item
+ * @param {number}              amount
+ */
+function updateQuality(item: BackstagePassesItem, amount: number = 1): void {
   if (item.quality < ITEM_MAXIMUM_QUALITY && item.sellIn) {
     let multiplier = 1;
 
