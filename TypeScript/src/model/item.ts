@@ -3,29 +3,29 @@
 /**
  * @class Item
  */
-abstract class Item {
+class Item {
   /**
-   * @private
+   * @protected
    * @type string
    */
-  private _name: string;
+  protected _name: string;
   /**
-   * @private
+   * @protected
    * @type number
    */
-  private _quality: number;
+  protected _quality: number;
   /**
-   * @private
-   * @type number
+   * @protected
+   * @type number|null
    */
-  private _sellIn: number;
+  protected _sellIn: number | null;
 
   /**
    * @param {string} name
    * @param {number} quality
-   * @param {number} sellIn
+   * @param {number, null} sellIn
    */
-  protected constructor(name: string, quality: number, sellIn: number) {
+  protected constructor(name: string, quality: number, sellIn: number | null) {
     this._quality = quality;
     this._sellIn = sellIn;
     this._name = name;
@@ -60,16 +60,16 @@ abstract class Item {
   }
 
   /**
-   * @return {number}
+   * @return {number, null}
    */
-  get sellIn(): number {
+  get sellIn(): number | null {
     return this._sellIn;
   }
 
   /**
-   * @param {number} value
+   * @param {number, null} value
    */
-  set sellIn(value: number) {
+  set sellIn(value: number | null) {
     this._sellIn = value;
   }
 }

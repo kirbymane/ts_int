@@ -1,15 +1,16 @@
 'use strict';
 
+import {SULFURAS_QUALITY} from "../../constant/item-constants";
+
 /**
  * @class SulfurasItem
  * @extends Item
  */
 class SulfurasItem extends Item {
   /**
-   * @param {number} quality
-   * @param {number} sellIn
+   * SulfurasItem constructor
    */
-  constructor(quality: number, sellIn: number) {
-    super('Sulfuras', quality, sellIn);
+  constructor() {
+    super('Sulfuras', SULFURAS_QUALITY, null);
   }
 }
