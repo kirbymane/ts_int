@@ -10,7 +10,7 @@
     "start": "ts-node src/app.ts",
     "watch": "nodemon"
   },
-  "jest" : {
+  "jest": {
     "transform": {
       "^.+\\.tsx?$": "ts-jest"
     },
@@ -41,5 +41,8 @@
     "tsconfig-paths": "^3.11.0",
     "tslint": "^6.1.3",
     "typescript": "^4.5.2"
+  },
+  "dependencies": {
+    "axios": "^0.24.0"
   }
 }
