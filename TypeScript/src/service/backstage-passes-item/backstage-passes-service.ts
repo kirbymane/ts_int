@@ -14,8 +14,9 @@ export function updateSellIn(item: BackstagePassesItem, amount: number = 1, isCo
     item.quality = 0;
     return
   }
-  decreaseSellIn(item, amount);
-  updateQuality(item, amount);
+  if (decreaseSellIn(item, amount)) {
+    updateQuality(item, amount);
+  }
 }
 
 /**

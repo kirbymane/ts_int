@@ -7,8 +7,9 @@ import {ConjuredItem} from "../../model/conjured-item/conjured-item";
  * @param {number}       amount
  */
 export function updateSellIn(item: ConjuredItem, amount: number = 1) {
-  decreaseSellIn(item, amount);
-  updateQuality(item, amount);
+  if (decreaseSellIn(item, amount)) {
+    updateQuality(item, amount);
+  }
 }
 
 /**

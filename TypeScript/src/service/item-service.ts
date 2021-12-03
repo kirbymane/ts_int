@@ -7,8 +7,9 @@ import {increaseQuality} from "../util/quality-util";
  * @param {number} amount
  */
 export function updateSellIn(item: Item, amount: number = 1) {
-  decreaseSellIn(item, amount);
-  updateQuality(item, amount);
+  if (decreaseSellIn(item, amount)) {
+    updateQuality(item, amount);
+  }
 }
 
 /**
