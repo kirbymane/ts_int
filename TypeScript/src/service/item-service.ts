@@ -1,6 +1,6 @@
 import {Item} from "../model/item";
 import {decreaseSellIn} from "../util/sell-in-util";
-import {increaseQuality} from "../util/quality-util";
+import {decreaseQuality} from "../util/quality-util";
 
 /**
  * @param {Item}   item
@@ -17,5 +17,5 @@ export function updateSellIn(item: Item, amount: number = 1) {
  * @param {number} amount
  */
 function updateQuality(item: Item, amount: number = 1) {
-  increaseQuality(item, amount);
+  decreaseQuality(item, amount);
 }

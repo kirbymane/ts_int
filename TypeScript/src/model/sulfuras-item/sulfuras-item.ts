@@ -9,8 +9,9 @@ const SULFURAS_QUALITY = 80;
 export class SulfurasItem extends Item {
   /**
    * SulfurasItem constructor
+   * @param {number} sellIn
    */
-  constructor() {
-    super('Sulfuras', SULFURAS_QUALITY, null);
+  constructor(sellIn: number) {
+    super('Sulfuras', SULFURAS_QUALITY, sellIn);
   }
 }

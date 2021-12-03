@@ -14,16 +14,16 @@ export class Item {
   protected _quality: number;
   /**
    * @protected
-   * @type number|null
+   * @type number
    */
-  protected _sellIn: number | null;
+  protected _sellIn: number;
 
   /**
    * @param {string} name
    * @param {number} quality
-   * @param {number, null} sellIn
+   * @param {number} sellIn
    */
-  public constructor(name: string, quality: number, sellIn: number | null) {
+  public constructor(name: string, sellIn: number, quality: number) {
     this._quality = quality;
     this._sellIn = sellIn;
     this._name = name;
@@ -58,16 +58,16 @@ export class Item {
   }
 
   /**
-   * @return {number, null}
+   * @return {number}
    */
-  get sellIn(): number | null {
+  get sellIn(): number {
     return this._sellIn;
   }
 
   /**
-   * @param {number, null} value
+   * @param {number} value
    */
-  set sellIn(value: number | null) {
+  set sellIn(value: number ) {
     this._sellIn = value;
   }
 }

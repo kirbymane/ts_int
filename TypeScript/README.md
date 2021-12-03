@@ -10,10 +10,10 @@ Install dependencies
 npm install
 ```
 
-Run Shop
+Run Shop with nodemon
 
 ```sh
-npm start
+npm run watch
 ```
 
 ## Running tests
@@ -30,10 +30,4 @@ To run all tests in watch mode
 
 ```sh
 npm run test:jest:watch
-```
-
-### Mocha way
-
-```sh
-npm run test:mocha
 ```

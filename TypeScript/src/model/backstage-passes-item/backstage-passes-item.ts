@@ -6,10 +6,10 @@ import {Item} from "../item";
  */
 export class BackstagePassesItem extends Item {
   /**
-   * @param {number} quality
    * @param {number} sellIn
+   * @param {number} quality
    */
-  constructor(quality: number, sellIn: number) {
-    super('Backstage Passes', quality, sellIn);
+  constructor(sellIn: number, quality: number) {
+    super('Backstage Passes', sellIn, quality);
   }
 }

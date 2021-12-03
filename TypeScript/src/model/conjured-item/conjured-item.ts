@@ -6,10 +6,10 @@ import {Item} from "../item";
  */
 export class ConjuredItem extends Item {
   /**
-   * @param {number} quality
    * @param {number} sellIn
+   * @param {number} quality
    */
-  constructor(quality: number, sellIn: number) {
-    super('Conjured', quality, sellIn);
+  constructor(sellIn: number, quality: number, ) {
+    super('Conjured', sellIn, quality);
   }
 }
