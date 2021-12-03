@@ -1,13 +1,13 @@
-'use strict';
-
-import {decreaseQuality, increaseQuality} from "../util/quality-util";
+import {Item} from "../model/item";
+import {decreaseSellIn} from "../util/sell-in-util";
+import {increaseQuality} from "../util/quality-util";
 
 /**
  * @param {Item}   item
  * @param {number} amount
  */
-export function decreaseSellIn(item: Item, amount: number = 1) {
-  decreaseQuality(item, amount);
+export function updateSellIn(item: Item, amount: number = 1) {
+  decreaseSellIn(item, amount);
   updateQuality(item, amount);
 }
 

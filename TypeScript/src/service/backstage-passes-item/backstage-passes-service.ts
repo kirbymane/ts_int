@@ -1,20 +1,20 @@
-'use strict';
-
+import {decreaseSellIn} from "../../util/sell-in-util";
+import {increaseQuality} from "../../util/quality-util";
 import {BP_DOUBLE_RATE_DATE, BP_TRIPLE_RATE_DATE, ITEM_MAXIMUM_QUALITY} from "../../constant/item-constants";
-import {decreaseQuality, increaseQuality} from "../../util/quality-util";
+import {BackstagePassesItem} from "../../model/backstage-passes-item/backstage-passes-item";
 
 /**
  * @param {BackstagePassesItem} item
  * @param {number}              amount
  * @param {boolean}             isConcert
  */
-export function decreaseSellIn(item: BackstagePassesItem, amount: number = 1, isConcert: boolean = false): void {
+export function updateSellIn(item: BackstagePassesItem, amount: number = 1, isConcert: boolean = false): void {
   if (isConcert) {
     item.sellIn = 0;
     item.quality = 0;
     return
   }
-  decreaseQuality(item, amount);
+  decreaseSellIn(item, amount);
   updateQuality(item, amount);
 }
 

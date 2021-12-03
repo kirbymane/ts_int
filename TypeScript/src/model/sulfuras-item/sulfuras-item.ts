@@ -1,4 +1,4 @@
-'use strict';
+import {Item} from "../item";
 
 const SULFURAS_QUALITY = 80;
 

@@ -1,9 +1,7 @@
-'use strict';
-
 /**
  * @class Item
  */
-class Item {
+export class Item {
   /**
    * @protected
    * @type string
@@ -25,7 +23,7 @@ class Item {
    * @param {number} quality
    * @param {number, null} sellIn
    */
-  protected constructor(name: string, quality: number, sellIn: number | null) {
+  public constructor(name: string, quality: number, sellIn: number | null) {
     this._quality = quality;
     this._sellIn = sellIn;
     this._name = name;

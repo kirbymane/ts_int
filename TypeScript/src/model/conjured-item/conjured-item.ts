@@ -1,10 +1,10 @@
-'use strict';
+import {Item} from "../item";
 
 /**
  * @class ConjuredItem
  * @extends Item
  */
-class ConjuredItem extends Item {
+export class ConjuredItem extends Item {
   /**
    * @param {number} quality
    * @param {number} sellIn

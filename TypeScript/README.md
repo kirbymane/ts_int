@@ -10,6 +10,12 @@ Install dependencies
 npm install
 ```
 
+Run Shop
+
+```sh
+npm start
+```
+
 ## Running tests
 
 To run all tests
