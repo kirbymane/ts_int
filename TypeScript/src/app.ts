@@ -4,15 +4,15 @@ import axios from "axios";
 import * as fs from "fs";
 
 const shop = new Shop(itemFixtures);
+const args = process.argv.slice(2, 4);
+const loopCount = Number(args[0]);
+const requestCount = Number(args[1]);
 
-let args = process.argv.slice(2, 4);
-let loopCount = Number(args[0]);
-let requestCount = Number(args[1]);
 performRequestsAndLoop(loopCount, requestCount);
 
 async function performRequestsAndLoop(loopCount: number, requestCount: number) {
   for (let i = 0; i < loopCount; i++) {
-    let requests:any [] = [];
+    let requests: any [] = [];
     let successRequests: any[] = [];
 
     for (let j = 0; j < requestCount; j++) {
@@ -30,10 +30,14 @@ async function performRequestsAndLoop(loopCount: number, requestCount: number) {
       .catch(err => {
         console.log('Requests error: ', err.message);
       });
-    await fs.promises.writeFile("./src/log/log.txt", `${successRequests.length} successful responses received\n`, {flag: 'a'});
+    await fs.promises.writeFile(
+      "./src/log/log.txt",
+      `${successRequests.length} successful responses received\n`,
+      {flag: 'a'}
+    );
 
     if (successRequests.length) {
-      await performRequestsAndLoop(1,successRequests.length);
+      await performRequestsAndLoop(1, successRequests.length);
     }
 
     shop.updateSellIn();
