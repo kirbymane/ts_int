@@ -1,4 +1,4 @@
-import {Item} from "../model/item";
+import { Item } from '../model/item';
 
 /**
  * @param {Item}   item
@@ -10,7 +10,7 @@ export function decreaseSellIn(item: Item, amount: number): boolean {
 
   if (item.sellIn) {
     item.sellIn -= amount;
-    res = true
+    res = true;
   }
   return res;
 }

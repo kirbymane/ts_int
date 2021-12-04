@@ -1,5 +1,5 @@
-import {Item} from "../model/item";
-import {ITEM_MAXIMUM_QUALITY, ITEM_MINIMUM_QUALITY} from "../constant/item-constants";
+import { Item } from '../model/item';
+import { ITEM_MAXIMUM_QUALITY, ITEM_MINIMUM_QUALITY } from '../constant/item-constants';
 
 /**
  * @param {Item}   item

@@ -1,6 +1,6 @@
-import {AgedBrieItem} from "../../model/aged-brie-item/aged-brie-item";
-import {decreaseSellIn} from "../../util/sell-in-util";
-import {increaseQuality} from "../../util/quality-util";
+import { AgedBrieItem } from '../../model/aged-brie-item/aged-brie-item';
+import { decreaseSellIn } from '../../util/sell-in-util';
+import { increaseQuality } from '../../util/quality-util';
 
 /**
  * @param {AgedBrieItem} item

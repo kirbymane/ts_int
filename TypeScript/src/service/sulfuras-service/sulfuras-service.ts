@@ -1,4 +1,4 @@
-import {SulfurasItem} from "../../model/sulfuras-item/sulfuras-item";
+import { SulfurasItem } from '../../model/sulfuras-item/sulfuras-item';
 
 /**
  * @param {SulfurasItem} item

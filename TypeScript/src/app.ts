@@ -1,43 +1,48 @@
-import {Shop} from "./model/shop";
-import {itemFixtures} from "./fixtures/item-fixtures";
-import axios from "axios";
-import * as fs from "fs";
+import axios, { AxiosPromise } from 'axios';
+import * as fs from 'fs';
+import { Shop } from './model/shop';
+import { itemFixtures } from './fixtures/item-fixtures';
 
 const shop = new Shop(itemFixtures);
 const args = process.argv.slice(2, 4);
 const loopCount = Number(args[0]);
 const requestCount = Number(args[1]);
+const successAnswer = 'yes';
 
-performRequestsAndLoop(loopCount, requestCount);
+require('dotenv').config();
 
-async function performRequestsAndLoop(loopCount: number, requestCount: number) {
+const performRequestsAndLoop = async (loopCount: number, requestCount: number) => {
   for (let i = 0; i < loopCount; i++) {
-    let requests: any [] = [];
-    let successRequests: any[] = [];
+    const requests: AxiosPromise[] = [];
+    const successRequests: AxiosPromise[] = [];
 
-    for (let j = 0; j < requestCount; j++) {
-      requests.push(axios.get('https://yesno.wtf/api'));
+    if (process.env.API_URL) {
+      for (let j = 0; j < requestCount; j++) {
+        requests.push(axios.get(process.env.API_URL));
+      }
     }
 
     await axios.all(requests)
-      .then(res => {
-        for (let x = 0; x < requestCount; x++) {
-          if (res[x].data.answer === 'yes') {
-            successRequests.push(res[x].data);
+      .then((res) => {
+        res.forEach((value) => {
+          if (value.data?.answer === successAnswer) {
+            successRequests.push(value.data);
           }
-        }
+        });
       })
-      .catch(err => {
+      .catch((err) => {
         console.log('Requests error: ', err.message);
       });
-    if (!fs.existsSync('./src/log')){
-      await fs.mkdirSync('./src/log');
+    if (process.env.LOG_PATH && process.env.LOG_FILE) {
+      if (!fs.existsSync(process.env.LOG_PATH)) {
+        await fs.mkdirSync(process.env.LOG_PATH);
+      }
+      await fs.promises.writeFile(
+        `${process.env.LOG_PATH}/${process.env.LOG_FILE}`,
+        `${successRequests.length} successful responses received at ${new Date().toLocaleString()}\n`,
+        { flag: 'a' },
+      );
     }
-    await fs.promises.writeFile(
-      "./src/log/log.txt",
-      `${successRequests.length} successful responses received at ${new Date().toLocaleString()}\n`,
-      {flag: 'a'}
-    );
 
     if (successRequests.length) {
       await performRequestsAndLoop(1, successRequests.length);
@@ -45,15 +50,6 @@ async function performRequestsAndLoop(loopCount: number, requestCount: number) {
 
     shop.updateSellIn();
   }
-}
+};
 
-// let days = 20;
-// for (let i = 0; i < days; i++) {
-//   console.log("-------- day " + i + " --------");
-//   console.log("name, sellIn, quality");
-//   shop.items.forEach(element => {
-//     console.log(element.name + ' ' + element.sellIn + ' ' + element.quality);
-//   });
-//   console.log();
-//   shop.updateSellIn();
-// }
+performRequestsAndLoop(loopCount, requestCount);

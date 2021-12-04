@@ -1,6 +1,6 @@
-import {Item} from "../model/item";
-import {decreaseSellIn} from "../util/sell-in-util";
-import {decreaseQuality} from "../util/quality-util";
+import { Item } from '../model/item';
+import { decreaseSellIn } from '../util/sell-in-util';
+import { decreaseQuality } from '../util/quality-util';
 
 /**
  * @param {Item}   item

@@ -1,13 +1,13 @@
-import * as itemService from "../service/item-service";
-import * as sulfurasService from "../service/sulfuras-service/sulfuras-service";
-import * as conjuredService from "../service/conjured-service/conjured-service";
-import * as backstagePassesService from "../service/backstage-passes-service/backstage-passes-service";
-import * as agedBrieService from "../service/aged-brie-service/aged-brie-service";
-import {Item} from "./item";
-import {AgedBrieItem} from "./aged-brie-item/aged-brie-item";
-import {BackstagePassesItem} from "./backstage-passes-item/backstage-passes-item";
-import {ConjuredItem} from "./conjured-item/conjured-item";
-import {SulfurasItem} from "./sulfuras-item/sulfuras-item";
+import * as itemService from '../service/item-service';
+import * as sulfurasService from '../service/sulfuras-service/sulfuras-service';
+import * as conjuredService from '../service/conjured-service/conjured-service';
+import * as backstagePassesService from '../service/backstage-passes-service/backstage-passes-service';
+import * as agedBrieService from '../service/aged-brie-service/aged-brie-service';
+import { Item } from './item';
+import { AgedBrieItem } from './aged-brie-item/aged-brie-item';
+import { BackstagePassesItem } from './backstage-passes-item/backstage-passes-item';
+import { ConjuredItem } from './conjured-item/conjured-item';
+import { SulfurasItem } from './sulfuras-item/sulfuras-item';
 
 /**
  * @class Shop

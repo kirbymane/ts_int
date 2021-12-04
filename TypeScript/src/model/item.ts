@@ -7,11 +7,13 @@ export class Item {
    * @type string
    */
   protected _name: string;
+
   /**
    * @protected
    * @type number
    */
   protected _quality: number;
+
   /**
    * @protected
    * @type number
@@ -67,7 +69,7 @@ export class Item {
   /**
    * @param {number} value
    */
-  set sellIn(value: number ) {
+  set sellIn(value: number) {
     this._sellIn = value;
   }
 }
